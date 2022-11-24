@@ -4,7 +4,7 @@ import DataTable from './DataTable'
 const Home = () => {
     return (
         <div>
-            <div className="carousel w-full h-[500px] ">
+            <div className="carousel w-full ">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://placeimg.com/800/200/arch" className="w-full" alt='slider' />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
