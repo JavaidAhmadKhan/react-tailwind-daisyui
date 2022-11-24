@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard"
+
 
 const products = [
     {
@@ -39,7 +39,6 @@ const products = [
 export default function Home() {
     return (
         <div className="bg-white">
-            <ProductCard />
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                 <h2 className="sr-only">Products</h2>
 
