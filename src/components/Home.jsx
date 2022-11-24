@@ -1,54 +1,65 @@
-import React from 'react'
-import DataTable from './DataTable'
+import ProductCard from "./ProductCard"
 
-const Home = () => {
+const products = [
+    {
+        id: 1,
+        name: 'Earthen Bottle',
+        href: '#',
+        price: '$48',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    },
+    {
+        id: 2,
+        name: 'Nomad Tumbler',
+        href: '#',
+        price: '$35',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+        imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    },
+    {
+        id: 3,
+        name: 'Focus Paper Refill',
+        href: '#',
+        price: '$89',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+        imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    },
+    {
+        id: 4,
+        name: 'Machined Mechanical Pencil',
+        href: '#',
+        price: '$35',
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+        imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    },
+    // More products...
+]
+
+export default function Home() {
     return (
-        <div>
-            <div className="carousel w-full ">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" alt='slider' />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide2" className="carousel-item relative w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" alt='slider' />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide3" className="carousel-item relative w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" alt='slider' />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide2" className="btn btn-circle">❮</a>
-                        <a href="#slide4" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide4" className="carousel-item relative w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" alt='slider' />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
-                    </div>
+        <div className="bg-white">
+            <ProductCard />
+            <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                <h2 className="sr-only">Products</h2>
+
+                <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                    {products.map((product) => (
+                        <a key={product.id} href={product.href} className="group">
+                            <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                <img
+                                    src={product.imageSrc}
+                                    alt={product.imageAlt}
+                                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                                />
+                            </div>
+                            <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                            <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+                        </a>
+                    ))}
                 </div>
             </div>
-            <DataTable />
-            <section className='pt-12 pb-12'>
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://placeimg.com/400/400/arch" alt="Album" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Listen</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
         </div>
     )
 }
-
-export default Home
